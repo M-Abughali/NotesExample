@@ -34,6 +34,15 @@ class HomeFragment : Fragment() {
             }
 
 
+            moveToDisplayNotes.setOnClickListener {
+
+                Navigation.findNavController(moveToAddNote)
+                    .navigate(R.id.action_homeFragment_to_displayFragment)
+
+
+            }
+
+
         }
 
 

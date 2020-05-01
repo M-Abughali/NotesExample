@@ -9,6 +9,8 @@ class ViewModelFactory(val noteRepository: NoteRepository) : ViewModelProvider.F
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(InsertViewModel::class.java)) {
             return InsertViewModel(repository = noteRepository) as T
+        }else if (modelClass.isAssignableFrom(DisplayViewModel::class.java)) {
+            return DisplayViewModel(repository = noteRepository) as T
         }
         throw IllegalArgumentException("error from factory")
     }
