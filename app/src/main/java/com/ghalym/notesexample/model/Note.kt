@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
 data class Note(
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
-    val id: Long,
+    val id: Long=0,
     @ColumnInfo(name = "title")
     val title: String,
     @ColumnInfo(name = "content")
