@@ -13,6 +13,6 @@ Idea => app that helps users from saving their notes and have the ability to dis
 <h5><li>Recyclerview</li></h5>
 <h5><li>Room</li></h5>
 <h5><li>kotlin Coroutines</li></h5>
-<h5><li>Jetpack Navigation</li></h5>
-<h5><li>Data Binding (2 way Data Binding)</li></h5>
+<h5><li>Navigation Component</li></h5>
+<h5><li>Data Binding (2 ways Data Binding)</li></h5>
   </ul>
