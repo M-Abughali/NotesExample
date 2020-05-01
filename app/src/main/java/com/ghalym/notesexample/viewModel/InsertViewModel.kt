@@ -20,6 +20,13 @@ import kotlinx.coroutines.withContext
 
 class InsertViewModel(val repository: NoteRepository) : ViewModel(), Observable {
     val insertResultLiveData = MutableLiveData<String>()
+    val updateLiveData = MutableLiveData<String>()
+
+    @Bindable
+    var btnLiveData = MutableLiveData<String>()
+
+    @Bindable
+    var idLiveData = MutableLiveData<Long>()
 
     @Bindable
     var titleLiveData = MutableLiveData<String>()
@@ -40,20 +47,24 @@ class InsertViewModel(val repository: NoteRepository) : ViewModel(), Observable 
             else -> {
 
                 CoroutineScope(IO).launch {
-                    val result = repository.insertNote(
-                        Note(
-                            title = titleLiveData.value!!,
-                            content = contentLiveData.value!!
+
+                    if (idLiveData.value != null) {
+
+                        updateNote(
+                            Note(
+                                id = idLiveData.value!!,
+                                title = titleLiveData.value!!,
+                                content = contentLiveData.value!!
+                            )
                         )
-                    )
-                    withContext(Main){
-                        if (result.toInt() != -1) {
-                            insertResultLiveData.value = "Added Successfult"
-                            titleLiveData.value = ""
-                            contentLiveData.value = ""
-                        } else {
-                            insertResultLiveData.value = "Error in inserting"
-                        }
+                    } else {
+
+                        insertNote(
+                            Note(
+                                title = titleLiveData.value!!,
+                                content = contentLiveData.value!!
+                            )
+                        )
                     }
 
 
@@ -64,6 +75,33 @@ class InsertViewModel(val repository: NoteRepository) : ViewModel(), Observable 
 
         }
 
+
+    }
+
+    suspend fun insertNote(note: Note) {
+        val result = repository.insertNote(note)
+        withContext(Main) {
+            if (result.toInt() != -1) {
+                insertResultLiveData.value = "Added Successfult"
+                titleLiveData.value = ""
+                contentLiveData.value = ""
+            } else {
+                insertResultLiveData.value = "Error in inserting"
+            }
+        }
+    }
+
+    suspend fun updateNote(note: Note) {
+        val result = repository.updateNote(note)
+        withContext(Main) {
+
+            if (result > 0) {
+                updateLiveData.value = "update Note Success"
+            } else {
+                updateLiveData.value = "Something error when update"
+
+            }
+        }
 
     }
 

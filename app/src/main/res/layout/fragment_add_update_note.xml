@@ -40,7 +40,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{()->model.insertNewNote()}"
-            android:text="@string/add_note" />
+            android:text="@{model.btnLiveData}"
+
+            />
 
         <TextView
             android:id="@+id/result"

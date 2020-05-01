@@ -14,14 +14,13 @@ import kotlinx.coroutines.withContext
 
 class DisplayViewModel(val repository: NoteRepository) : ViewModel() {
 
-    val notesLiveData = repository.getNotes();
-    val deleteLiveData = MutableLiveData<String>();
-    val updateLiveData = MutableLiveData<String>();
+    val notesLiveData = repository.getNotes()
+    val deleteLiveData = MutableLiveData<String>()
     fun deleteNote(note: Note) {
 
         CoroutineScope(IO).launch {
 
-            val result = repository.deleteNote(note);
+            val result = repository.deleteNote(note)
 
             withContext(Main) {
                 if (result > 0) {
@@ -35,20 +34,5 @@ class DisplayViewModel(val repository: NoteRepository) : ViewModel() {
 
     }
 
-    fun updateNote(note: Note) {
-        CoroutineScope(IO).launch {
-
-            val result = repository.updateNote(note);
-            withContext(Main) {
-
-                if (result > 0) {
-                    updateLiveData.value = "update Note Success"
-                } else {
-                    updateLiveData.value = "Something error when update"
-
-                }
-            }
-        }
-    }
 
 }

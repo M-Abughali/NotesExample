@@ -19,12 +19,12 @@
     </fragment>
     <fragment
         android:id="@+id/addNoteFragment"
-        android:name="com.ghalym.notesexample.ui.AddNoteFragment"
+        android:name="com.ghalym.notesexample.ui.AddAndUpdateNoteFragment"
         android:label="fragment_add_note"
-        tools:layout="@layout/fragment_add_note" />
+        tools:layout="@layout/fragment_add_update_note" />
     <fragment
         android:id="@+id/displayFragment"
-        android:name="com.ghalym.notesexample.ui.displayNotes.DisplayNotesFragment"
+        android:name="com.ghalym.notesexample.ui.displayNotes.DisplayAndDeleteNotesFragment"
         android:label="fragment_display"
         tools:layout="@layout/fragment_display_notes" >
         <action

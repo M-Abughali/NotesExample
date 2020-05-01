@@ -10,10 +10,11 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavAction
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ghalym.databasesexample.roomExample.Note.data.NoteDataBase
 import com.ghalym.notesexample.R
-import com.ghalym.notesexample.databinding.FragmentAddNoteBinding
 import com.ghalym.notesexample.databinding.FragmentDisplayNotesBinding
 import com.ghalym.notesexample.model.Note
 import com.ghalym.notesexample.model.NoteRepository
@@ -22,10 +23,10 @@ import com.ghalym.notesexample.viewModel.InsertViewModel
 import com.ghalym.notesexample.viewModel.ViewModelFactory
 import java.nio.file.Files.delete
 
-class DisplayNotesFragment : Fragment(), OnShowOptionMenu {
-    private val notesList = ArrayList<Note>();
+class DisplayAndDeleteNotesFragment : Fragment(), OnShowOptionMenu {
+    private val notesList = ArrayList<Note>()
     private lateinit var notesAdapter: NotesAdapter
-    private lateinit var displayViewModel: DisplayViewModel;
+    private lateinit var displayViewModel: DisplayViewModel
     private lateinit var fragmentDisplayNotesBinding: FragmentDisplayNotesBinding
 
     override fun onCreateView(
@@ -44,7 +45,7 @@ class DisplayNotesFragment : Fragment(), OnShowOptionMenu {
             ViewModelProvider(this, viewModelFactory).get(DisplayViewModel::class.java)
 
 
-        notesAdapter = NotesAdapter(notesList, this);
+        notesAdapter = NotesAdapter(notesList, this)
         fragmentDisplayNotesBinding.apply {
             rvNotes.adapter = notesAdapter
             rvNotes.layoutManager = LinearLayoutManager(requireActivity())
@@ -54,7 +55,6 @@ class DisplayNotesFragment : Fragment(), OnShowOptionMenu {
 
         setupDisplayLiveData()
         setupDeleteLiveData()
-        setupUpdateLiveData()
 
         return fragmentDisplayNotesBinding.root
 
@@ -77,13 +77,6 @@ class DisplayNotesFragment : Fragment(), OnShowOptionMenu {
         })
     }
 
-    fun setupUpdateLiveData() {
-        displayViewModel.updateLiveData.observe(viewLifecycleOwner, Observer {
-
-            Toast.makeText(requireActivity(), it, Toast.LENGTH_SHORT).show()
-
-        })
-    }
 
     override fun onShowOptionMenu(note: Note, position: Int) {
         val menu =
@@ -95,16 +88,19 @@ class DisplayNotesFragment : Fragment(), OnShowOptionMenu {
 
             when (it.itemId) {
                 R.id.menuItemDelete -> {
-                    displayViewModel.deleteNote(note);
+                    displayViewModel.deleteNote(note)
                 }
                 R.id.menuItemUpdate -> {
-                    displayViewModel.updateNote(note);
+                    val bundle = Bundle()
+                    bundle.putSerializable("note", note)
+                    Navigation.findNavController(fragmentDisplayNotesBinding.root)
+                        .navigate(R.id.action_displayFragment_to_addNoteFragment, bundle)
                 }
 
             }
 
 
-            return@setOnMenuItemClickListener true;
+            return@setOnMenuItemClickListener true
         }
     }
 }
