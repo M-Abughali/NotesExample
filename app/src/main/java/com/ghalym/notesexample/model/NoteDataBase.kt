@@ -12,14 +12,16 @@ abstract class NoteDataBase() : RoomDatabase() {
 
 
     companion object {
-        private lateinit var Instance: RoomDatabase
-        fun getDataBase(application: Application): RoomDatabase {
-            if (Instance == null)
-                Instance =
-                    Room.databaseBuilder(application, NoteDataBase::class.java, "noteDb").build();
-
-
-            return Instance;
+        @Volatile
+        private var Instance: RoomDatabase? = null
+        fun getDataBase(application: Application): RoomDatabase? {
+            synchronized(this) {
+                if (Instance == null)
+                    Instance =
+                        Room.databaseBuilder(application, NoteDataBase::class.java, "noteDb")
+                            .build()
+            }
+            return Instance
         }
 
     }
