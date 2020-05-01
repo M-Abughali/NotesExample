@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">NotesExample</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="move_to_add_note">Move To Add Note</string>
+    <string name="move_to_display_notes">Move To Display Notes</string>
+    <string name="title">title</string>
+    <string name="content">content</string>
+    <string name="add_note">Add Note</string>
 </resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.ghalym.notesexample.viewModel.InsertViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/title"
+            android:ems="10"
+            android:hint="@string/title"
+            android:inputType="textPersonName"
+            android:text="@={model.titleLiveData}" />
+
+        <EditText
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/content"
+            android:ems="10"
+            android:hint="@string/content"
+
+            android:inputType="textPersonName"
+            android:text="@={model.contentLiveData}" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->model.insertNewNote()}"
+            android:text="@string/add_note" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{model.insertResultLiveData}" />
+    </LinearLayout>
+
+
+</layout>
