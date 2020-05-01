@@ -1,5 +1,6 @@
 # notesExample
 kotlin example that helps developers to understand a lot of Jetpack components 
+<br/>
 Idea => app that helps users from saving their notes and have the ability to display, delete, or update notes
 
 
