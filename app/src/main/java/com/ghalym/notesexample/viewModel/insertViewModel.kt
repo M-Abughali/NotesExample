@@ -8,6 +8,10 @@ import androidx.lifecycle.ViewModel
 import com.ghalym.notesexample.model.Note
 import com.ghalym.notesexample.model.NoteDao
 import com.ghalym.notesexample.model.NoteRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 
 class insertViewModel(val repository: NoteRepository) : ViewModel() {
     val insertResultLiveData = MutableLiveData<String>();
@@ -18,8 +22,7 @@ class insertViewModel(val repository: NoteRepository) : ViewModel() {
     @Bindable
     var contentLiveData = MutableLiveData<String>();
 
-    suspend fun insertNewNote() {
-
+    fun insertNewNote() {
 
         when {
             TextUtils.isEmpty(titleLiveData.value) -> {
@@ -30,13 +33,15 @@ class insertViewModel(val repository: NoteRepository) : ViewModel() {
             }
             else -> {
 
-
-                repository.insertNote(
-                    Note(
-                        title = titleLiveData.value!!,
-                        content = contentLiveData.value!!
+                CoroutineScope(IO).launch {
+                    repository.insertNote(
+                        Note(
+                            title = titleLiveData.value!!,
+                            content = contentLiveData.value!!
+                        )
                     )
-                )
+                }
+
             }
 
 
