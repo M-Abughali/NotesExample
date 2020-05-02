@@ -14,6 +14,7 @@ import androidx.navigation.NavAction
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ghalym.databasesexample.roomExample.Note.data.NoteDataBase
+import com.ghalym.notesexample.MyApp
 import com.ghalym.notesexample.R
 import com.ghalym.notesexample.databinding.FragmentDisplayNotesBinding
 import com.ghalym.notesexample.model.Note
@@ -37,7 +38,7 @@ class DisplayAndDeleteNotesFragment : Fragment(), OnShowOptionMenu {
             DataBindingUtil.inflate(inflater, R.layout.fragment_display_notes, container, false)
 
         val noteDao =
-            NoteDataBase.invoke(requireActivity().applicationContext).noteDao()
+            NoteDataBase.invoke(MyApp.getInstance()).noteDao()
         val noteRepository = NoteRepository(noteDao)
         val viewModelFactory = ViewModelFactory(noteRepository)
 

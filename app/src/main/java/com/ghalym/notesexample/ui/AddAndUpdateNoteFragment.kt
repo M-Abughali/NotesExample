@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.ghalym.databasesexample.roomExample.Note.data.NoteDataBase
+import com.ghalym.notesexample.MyApp
 import com.ghalym.notesexample.R
 import com.ghalym.notesexample.databinding.FragmentAddUpdateNoteBinding
 import com.ghalym.notesexample.model.Note
@@ -30,7 +31,7 @@ class AddAndUpdateNoteFragment : Fragment() {
 
 
         val noteDao =
-            NoteDataBase.invoke(requireActivity().applicationContext).noteDao()
+            NoteDataBase.invoke(MyApp.getInstance()).noteDao()
         val noteRepository = NoteRepository(noteDao)
         val viewModelFactory = ViewModelFactory(noteRepository)
 
