@@ -5,7 +5,7 @@ import com.ghalym.notesexample.ui.displayNotes.DisplayAndDeleteNotesFragment
 import dagger.Component
 
 
-@Component
+@Component(modules = [AppModule::class])
 interface NoteComponent {
 
     fun inject(addAndUpdateNoteFragment: AddAndUpdateNoteFragment)
