@@ -17,11 +17,15 @@ import com.ghalym.notesexample.model.Note
 import com.ghalym.notesexample.model.NoteRepository
 import com.ghalym.notesexample.viewModel.InsertViewModel
 import com.ghalym.notesexample.viewModel.ViewModelFactory
+import javax.inject.Inject
 
 
 class AddAndUpdateNoteFragment : Fragment() {
     lateinit var fragmentAddUpdateNoteBinding: FragmentAddUpdateNoteBinding
     lateinit var insertViewModel: InsertViewModel
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory;
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,12 +33,7 @@ class AddAndUpdateNoteFragment : Fragment() {
         fragmentAddUpdateNoteBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_add_update_note, container, false)
 
-
-        val noteDao =
-            NoteDataBase.invoke(MyApp.getInstance()).noteDao()
-        val noteRepository = NoteRepository(noteDao)
-        val viewModelFactory = ViewModelFactory(noteRepository)
-
+       MyApp.getInstance().getNoteComponent().inject(this);
 
         insertViewModel =
             ViewModelProvider(this, viewModelFactory).get(InsertViewModel::class.java)

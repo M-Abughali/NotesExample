@@ -6,13 +6,14 @@ import com.ghalym.notesexample.di.DaggerNoteComponent
 import com.ghalym.notesexample.di.NoteComponent
 
 class MyApp : Application() {
+    private lateinit var noteComponent: NoteComponent;
 
-
+     public fun getNoteComponent(): NoteComponent {
+        return noteComponent;
+    }
     companion object {
-        private lateinit var noteComponent: NoteComponent;
-        private lateinit var Instance: Application;
-
-        public fun getInstance(): Application {
+        private lateinit var Instance: MyApp;
+         fun getInstance(): MyApp {
             return Instance;
         }
     }
@@ -20,6 +21,6 @@ class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
         Instance = this;
-        noteComponent = DaggerNoteComponent.builder().appModule(AppModule(this)).build();
+     noteComponent = DaggerNoteComponent.builder().appModule(AppModule(this)).build();
     }
 }

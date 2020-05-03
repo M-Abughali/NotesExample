@@ -23,12 +23,16 @@ import com.ghalym.notesexample.viewModel.DisplayViewModel
 import com.ghalym.notesexample.viewModel.InsertViewModel
 import com.ghalym.notesexample.viewModel.ViewModelFactory
 import java.nio.file.Files.delete
+import javax.inject.Inject
 
 class DisplayAndDeleteNotesFragment : Fragment(), OnShowOptionMenu {
     private val notesList = ArrayList<Note>()
     private lateinit var notesAdapter: NotesAdapter
     private lateinit var displayViewModel: DisplayViewModel
     private lateinit var fragmentDisplayNotesBinding: FragmentDisplayNotesBinding
+
+    @Inject
+    lateinit var viewModelFactory:ViewModelFactory;
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,10 +41,7 @@ class DisplayAndDeleteNotesFragment : Fragment(), OnShowOptionMenu {
         fragmentDisplayNotesBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_display_notes, container, false)
 
-        val noteDao =
-            NoteDataBase.invoke(MyApp.getInstance()).noteDao()
-        val noteRepository = NoteRepository(noteDao)
-        val viewModelFactory = ViewModelFactory(noteRepository)
+        MyApp.getInstance().getNoteComponent().inject(this);
 
         displayViewModel =
             ViewModelProvider(this, viewModelFactory).get(DisplayViewModel::class.java)

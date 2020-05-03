@@ -1,16 +1,24 @@
 package com.ghalym.notesexample.model
 
+import android.app.Application
 import androidx.lifecycle.LiveData
+import com.ghalym.databasesexample.roomExample.Note.data.NoteDataBase
 
-class NoteRepository(val noteDao: NoteDao) {
+class NoteRepository(application: Application) {
+    val noteDao: NoteDao;
 
-     fun getNotes(): LiveData<List<Note>> = noteDao.getAllNotes()
+    init {
+        noteDao =
+            NoteDataBase.invoke(application).noteDao()
+    }
 
-     fun insertNote(note: Note): Long = noteDao.addNote(note)
+    fun getNotes(): LiveData<List<Note>> = noteDao.getAllNotes()
 
-     fun deleteNote(note: Note): Int = noteDao.deleteNote(note)
+    fun insertNote(note: Note): Long = noteDao.addNote(note)
 
-     fun updateNote(note: Note): Int = noteDao.updateNote(note)
+    fun deleteNote(note: Note): Int = noteDao.deleteNote(note)
+
+    fun updateNote(note: Note): Int = noteDao.updateNote(note)
 
 
 }

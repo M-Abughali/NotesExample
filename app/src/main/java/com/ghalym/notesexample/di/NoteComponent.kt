@@ -3,9 +3,10 @@ package com.ghalym.notesexample.di
 import com.ghalym.notesexample.ui.AddAndUpdateNoteFragment
 import com.ghalym.notesexample.ui.displayNotes.DisplayAndDeleteNotesFragment
 import dagger.Component
+import javax.inject.Singleton
 
-
-@Component(modules = [AppModule::class])
+@Singleton
+@Component(modules = [AppModule::class, RepositoryModule::class])
 interface NoteComponent {
 
     fun inject(addAndUpdateNoteFragment: AddAndUpdateNoteFragment)
