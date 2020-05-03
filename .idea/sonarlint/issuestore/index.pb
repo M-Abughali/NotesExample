@@ -29,13 +29,3 @@ y
 Iapp/src/main/java/com/ghalym/notesexample/ui/displayNotes/NotesAdapter.kt,9\2\92bec1a5b2ca5020bb02e7a6daf99bdf6cae64ba
 Å
 Qapp/src/main/java/com/ghalym/notesexample/ui/displayNotes/DisplayNotesFragment.kt,8\5\85d3f4d9a7352f82411d610f79a5f085885ff309
-f
-6app/src/main/res/drawable/ic_arrow_back_black_24dp.xml,8\6\86d56e2c0babc94ad85029f4329e5043adb4f37a
-`
-0app/src/main/res/drawable/ic_menu_black_24dp.xml,f\1\f1825bf127c4c88c4446eecd24efd8dbf317e96b
-T
-$app/src/main/res/layout/row_note.xml,f\4\f43f049bbb934ca63ba7c5ad6c49542d4fb23c6d
-T
-$app/src/main/res/menu/notes_menu.xml,c\d\cd7887733c360c0bdde712ebac1bcc81a31c5586
-Y
-)app/src/main/res/navigation/nav_graph.xml,b\a\baffce053da291d96fb575a09f2bbe9aaa9c4be9
