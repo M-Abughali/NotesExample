@@ -17,3 +17,21 @@ Idea => app that helps users from saving their notes and have the ability to dis
 <h5><li>Navigation Component</li></h5>
 <h5><li>Data Binding (2 ways Data Binding)</li></h5>
   </ul>
+
+
+ <html>
+<table border="1" bordercolor="red" align="center">
+    <tr>
+        <td border=1 height=450 width=300><img src="img/Screenshot1.png"></img></th>
+        <td border=1 height=450 width=300><img src="img/Screenshot2.png"></img></th>
+    </tr>
+    <tr>
+        <td border=1 height=450 width=300><img src="img/Screenshot3.png"></img></th>
+        <td border=1 height=450 width=300><img src="img/Screenshot4.png"></img></th>
+    </tr>
+      <tr>
+        <td border=1 height=450 width=300><img src="img/Screenshot5.png"></img></th>
+        <td border=1 height=450 width=300></th>
+    </tr>
+</table>
+</html>
