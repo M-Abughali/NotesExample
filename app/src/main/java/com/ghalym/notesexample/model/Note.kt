@@ -15,4 +15,15 @@ data class Note(
     val title: String,
     @ColumnInfo(name = "content")
     val content: String
-) : Serializable
+) : Serializable,INote{
+
+    override fun isEqual(iNote: INote): Boolean {
+        iNote as Note
+        return iNote.id == id && iNote.title == title && iNote.content == content;
+    }
+
+    override fun isValid(): Boolean {
+        return !title.isEmpty() && !content.isEmpty()
+    }
+
+}

@@ -13,20 +13,23 @@ import com.ghalym.notesexample.model.NoteDao
     version = 1
 )
 abstract class NoteDataBase : RoomDatabase(){
+    companion object{
+       final val DATABASE_NAME="DATABASE_NAME"
+    }
     abstract fun noteDao(): NoteDao
 
-    companion object {
-        @Volatile private var instance: NoteDataBase? = null
-        private val LOCK = Any()
-
-        operator fun invoke(context: Context)= instance ?: synchronized(LOCK){
-            instance ?: buildDatabase(context).also { instance = it}
-        }
-
-        private fun buildDatabase(context: Context) = Room.databaseBuilder(context,
-            NoteDataBase::class.java, "note-list.db")
-            .build()
-    }
+//    companion object {
+//        @Volatile private var instance: NoteDataBase? = null
+//        private val LOCK = Any()
+//
+//        operator fun invoke(context: Context)= instance ?: synchronized(LOCK){
+//            instance ?: buildDatabase(context).also { instance = it}
+//        }
+//
+//        private fun buildDatabase(context: Context) = Room.databaseBuilder(context,
+//            NoteDataBase::class.java, "note-list.db")
+//            .build()
+//    }
 }
 
 

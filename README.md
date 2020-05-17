@@ -17,6 +17,7 @@ Idea => app that helps users from saving their notes and have the ability to dis
 <h5><li>Navigation Component</li></h5>
 <h5><li>Data Binding (2 ways Data Binding)</li></h5>
 <h5><li>Dagger2</li></h5>
+<h5><li>Junit4 for UnitTest</li></h5>
   </ul>
 
 

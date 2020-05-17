@@ -6,7 +6,7 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AppModule::class, RepositoryModule::class])
+@Component(modules = [AppModule::class, NoteDaoModule::class, NoteDataBaseModule::class, RepositoryModule::class])
 interface NoteComponent {
 
     fun inject(addAndUpdateNoteFragment: AddAndUpdateNoteFragment)

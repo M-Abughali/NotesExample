@@ -4,13 +4,7 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import com.ghalym.databasesexample.roomExample.Note.data.NoteDataBase
 
-class NoteRepository(application: Application) {
-    val noteDao: NoteDao;
-
-    init {
-        noteDao =
-            NoteDataBase.invoke(application).noteDao()
-    }
+class NoteRepository(val noteDao: NoteDao) {
 
     fun getNotes(): LiveData<List<Note>> = noteDao.getAllNotes()
 
