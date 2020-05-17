@@ -62,7 +62,7 @@ class NoteTest {
 
 
     @Test
-    fun isEqual_2NotesWithDifferentPassword_returnFalse() {
+    fun isEqual_2NotesWithDifferentcontent_returnFalse() {
         //Arrange
         val note1 = Note(ID1, TITLE1, CONTENT1);
         val note2 = Note(ID1, TITLE1, CONTENT2);
@@ -85,7 +85,7 @@ class NoteTest {
     }
 
     @Test
-    fun isValid_EmptyNoteTITLE_returnFalse() {
+    fun isValid_EmptyNoteTitle_returnFalse() {
         //Arrange
         val Note = Note(ID1, "", CONTENT1);
         //Act
@@ -95,7 +95,7 @@ class NoteTest {
     }
 
     @Test
-    fun isValid_EmptyPassword_returnFalse() {
+    fun isValid_EmptyContent_returnFalse() {
         //Arrange
         val Note = Note(ID1, TITLE1, "");
         //Act

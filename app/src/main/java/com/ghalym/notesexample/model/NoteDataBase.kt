@@ -14,7 +14,7 @@ import com.ghalym.notesexample.model.NoteDao
 )
 abstract class NoteDataBase : RoomDatabase(){
     companion object{
-       final val DATABASE_NAME="DATABASE_NAME"
+        val DATABASE_NAME="DATABASE_NAME"
     }
     abstract fun noteDao(): NoteDao
 
