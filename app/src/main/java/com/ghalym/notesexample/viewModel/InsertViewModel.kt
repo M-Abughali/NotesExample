@@ -78,8 +78,8 @@ class InsertViewModel(val repository: NoteRepository) : ViewModel(), Observable 
         val result: Result<Long> = repository.insertNote(note)
         withContext(Main) {
             when (result) {
-                is Result.Success -> insertResultLiveData.value = "Error in inserting"
-                is Result.Error -> {
+                is Result.Error-> insertResultLiveData.value = "Error in inserting"
+                is Result.Success -> {
                     insertResultLiveData.value = "Added Successfult"
                     titleLiveData.value = ""
                     contentLiveData.value = ""
