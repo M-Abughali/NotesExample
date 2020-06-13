@@ -8,4 +8,5 @@
     <string name="content">content</string>
     <string name="add_note">Add Note</string>
     <string name="update_note">Update Note</string>
+    <string name="insertSuccessfuly">insertSuccessfuly</string>
 </resources>

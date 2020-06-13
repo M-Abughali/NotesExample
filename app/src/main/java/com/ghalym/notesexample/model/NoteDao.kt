@@ -2,21 +2,23 @@ package com.ghalym.notesexample.model
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import javax.inject.Singleton
 
+@Singleton
 @Dao
 interface NoteDao {
 
     @Insert
-     fun addNote(note: Note): Long
+    fun addNote(note: Note): Long
 
     @Query("select * from note")
-     fun getAllNotes(): LiveData<List<Note>>
+    fun getAllNotes(): LiveData<List<Note>>
 
     @Delete
-     fun deleteNote(note: Note): Int
+    fun deleteNote(note: Note): Int
 
     @Update
-     fun updateNote(note: Note): Int
+    fun updateNote(note: Note): Int
 
 
 }

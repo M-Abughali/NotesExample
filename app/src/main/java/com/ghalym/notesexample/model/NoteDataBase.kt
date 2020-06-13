@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.ghalym.notesexample.model.Note
 import com.ghalym.notesexample.model.NoteDao
+import javax.inject.Singleton
 
 
 @Database(

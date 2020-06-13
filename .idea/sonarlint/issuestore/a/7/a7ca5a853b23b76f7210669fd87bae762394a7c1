@@ -1,0 +1,11 @@
+
+•kotlin:S1005"rRename function "isEqual_2NotesWithDifferentTITLE_returnFalse" to match the regular expression ^[a-z][a-zA-Z0-9]*$(ÄïÇ¤ûÿÿÿÿ8ŞÌ„Å£.
+‚kotlin:S100"dRename function "isEqual_2EqualNotes_returnTrue" to match the regular expression ^[a-z][a-zA-Z0-9]*$(Ğ‰Øú8ŞÌ„Å£.
+ukotlin:S117P"RRename this local variable to match the regular expression "^[_a-z][a-zA-Z0-9]*$".(±Ü³üşÿÿÿÿ8ŞÌ„Å£.
+kotlin:S100)"oRename function "isEqual_2NotesWithDifferentId_returnFalse" to match the regular expression ^[a-z][a-zA-Z0-9]*$(Äâ„§8ŞÌ„Å£.
+pkotlin:S117Z"RRename this local variable to match the regular expression "^[_a-z][a-zA-Z0-9]*$".(ÿ«ò8ŞÌ„Å£.
+‘kotlin:S100A"tRename function "isEqual_2NotesWithDifferentcontent_returnFalse" to match the regular expression ^[a-z][a-zA-Z0-9]*$(Ğíîi8ŞÌ„Å£.
+pkotlin:S117d"RRename this local variable to match the regular expression "^[_a-z][a-zA-Z0-9]*$".(›àù¼8ŞÌ„Å£.
+†kotlin:S100X"hRename function "isValid_EmptyNoteTitle_returnFalse" to match the regular expression ^[a-z][a-zA-Z0-9]*$(™é¦Ë8ŞÌ„Å£.
+„kotlin:S100b"fRename function "isValid_EmptyContent_returnFalse" to match the regular expression ^[a-z][a-zA-Z0-9]*$(°ö‡¨8ŞÌ„Å£.
+„kotlin:S100N"fRename function "isValid_validNoteInfo_returnTrue" to match the regular expression ^[a-z][a-zA-Z0-9]*$(ÍÂî¿8ŞÌ„Å£.

@@ -1,5 +1,6 @@
 package com.ghalym.notesexample.model
 
+import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -11,6 +12,7 @@ data class Note(
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
+    @NonNull
     @ColumnInfo(name = "title")
     val title: String,
     @ColumnInfo(name = "content")

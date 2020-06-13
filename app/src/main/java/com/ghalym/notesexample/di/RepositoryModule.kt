@@ -7,9 +7,12 @@ import com.ghalym.notesexample.model.NoteDao
 import com.ghalym.notesexample.model.NoteRepository
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
+
 
 @Module
 class RepositoryModule() {
+    @Singleton
     @Provides
     fun getRepostory(noteDao: NoteDao): NoteRepository {
         return NoteRepository(noteDao)
